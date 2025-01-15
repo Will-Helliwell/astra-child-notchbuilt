@@ -13,3 +13,6 @@ To do in Astra customizer:
 - Set everything to full width
 - Remove headers and footers (so can be replaced with custom ones)
 - Select desired header and body fonts
+
+Other notes:
+- Colours to be defined globally as css variables in style.css (to allow re-use across site)

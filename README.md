@@ -11,4 +11,5 @@ It also contains:
 
 To do in Astra customizer:
 - Set everything to full width
-- Remove headers and footers
+- Remove headers and footers (so can be replaced with custom ones)
+- Select desired header and body fonts

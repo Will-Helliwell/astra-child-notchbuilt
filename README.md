@@ -1,4 +1,4 @@
-This is a template for new astra child projects.
+This is a template for notchbuilt (local builders website).
 
 It contains a page template for the homepage, which is :
 - Modular - template parts are reusable and can be reordered

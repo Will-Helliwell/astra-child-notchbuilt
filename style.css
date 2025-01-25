@@ -1,13 +1,22 @@
 /*
-Theme Name: Astra Child Services Business Theme
+Theme Name: Astra Child Notchbuilt Theme
 Theme URI:
 Description: Child theme for the Astra Theme
 Author: Will Helliwell
 Author URI: https://github.com/Will-Helliwell
 Template: astra
 Version: 1.0.0
-Text Domain: astrachildservicesbusiness
+Text Domain: astrachildnotchbuilt
 */
+
+:root {
+    /*reusable site colours*/
+    --site-primary-color: #f2f0ea;
+    --plain-white: #ffffff;
+    --plain-black: #000000;
+    --plain-white-hover: gray;
+    --red-highlight: #ff5e5e;
+}
 
 /* this overrides the astra 'container' settings which only allow full-width in the paid version of the theme */
 .ast-container {

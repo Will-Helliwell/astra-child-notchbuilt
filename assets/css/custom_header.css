@@ -1,0 +1,56 @@
+#custom-site-header {
+    background-color: var(--site-primary-color);
+    padding: 25px 0;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .header-logo {
+    flex: 0 0 25%;
+  }
+  
+  .header-navigation {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .primary-menu,
+  .primary-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .primary-menu li {
+    margin: 0 15px;
+  }
+  
+  .primary-menu li a {
+    color: var(--plain-black);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .primary-menu li a:hover {
+    color: var(--plain-white-hover); 
+  }
+  
+  .header-services-info {
+    flex: 0 0 25%;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  

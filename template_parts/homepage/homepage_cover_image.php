@@ -20,4 +20,11 @@ wp_enqueue_style(
     .custom-hero-section {
         background-image: url('<?php echo esc_url( wp_get_attachment_url(36) ); ?>');
     }
+
+    /* Mobile specific background image */
+    @media (max-width: 767px) {
+        .custom-hero-section {
+            background-image: url('<?php echo esc_url( wp_get_attachment_url(38) ); ?>'); /* Mobile background */
+        }
+    }
 </style>

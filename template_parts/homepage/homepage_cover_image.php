@@ -11,7 +11,7 @@ wp_enqueue_style(
 <div class="custom-hero-section">
     <div class="hero-overlay">
         <div class="overlay-text">
-            <?php echo wp_kses_post( 'crafting unique, custom<br>homes for discerning<br>architects and homeowners' ); ?>
+            <?php echo wp_kses_post( 'crafting unique, custom<br>homes for discerning<br>homeowners and architects' ); ?>
         </div>
     </div>
 </div>

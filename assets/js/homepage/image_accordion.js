@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = Array.from(track.children);
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
-    let currentIndex = 1;
+    let currentIndex = 0;
 
     // Update classes for visible slides
     function updateSlideClasses() {
@@ -17,29 +17,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Update slide positions
     function updateSlidePosition() {
         const slideWidth = slides[0].offsetWidth + 20; // Width + margin
         track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
         updateSlideClasses();
+        updateButtonVisibility();
     }
 
-    // Next button click handler
+    function updateButtonVisibility() {
+        
+        // get the index of the last visible slide
+        let lastVisibleSlideIndex = 0;
+        slides.forEach((slide, index) => {
+            if (slide.classList.contains('visible')) {
+                lastVisibleSlideIndex = index;
+            }
+        });
+
+        // Hide/show buttons based on current slide index
+        if (lastVisibleSlideIndex === slides.length - 1) {
+            console.log('reached end');
+            nextButton.style.display = "none";
+        } else {
+            nextButton.style.display = "flex";
+        }
+    }
+
     nextButton.addEventListener('click', () => {
         if (currentIndex < slides.length - 1) {
             currentIndex++;
-        } else {
-            currentIndex = 0;
         }
         updateSlidePosition();
     });
-
-    // Previous button click handler
+    
     prevButton.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
-        } else {
-            currentIndex = slides.length - 1;
         }
         updateSlidePosition();
     });

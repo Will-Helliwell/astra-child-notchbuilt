@@ -28,7 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // get the index of the last visible slide
         let lastVisibleSlideIndex = 0;
+        let firstVisibleSlideIndex = null;
         slides.forEach((slide, index) => {
+            if (slide.classList.contains('visible') && firstVisibleSlideIndex === null) {
+                firstVisibleSlideIndex = index;
+            }
             if (slide.classList.contains('visible')) {
                 lastVisibleSlideIndex = index;
             }
@@ -40,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
             nextButton.style.display = "none";
         } else {
             nextButton.style.display = "flex";
+        }
+        if (firstVisibleSlideIndex == 0) {
+            prevButton.style.display = "none";
+        } else {
+            prevButton.style.display = "flex";
         }
     }
 

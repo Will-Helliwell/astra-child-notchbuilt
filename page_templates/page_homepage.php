@@ -17,6 +17,8 @@
 
             <?php get_template_part('template_parts/homepage/homepage_cover_image'); ?>
 
+            <?php get_template_part('template_parts/homepage/image_accordion'); ?>
+
             <?php get_template_part('template_parts/astra_toggleable_title'); ?>
 
             <?php get_template_part('template_parts/astra_gutenberg_blocks') ?>

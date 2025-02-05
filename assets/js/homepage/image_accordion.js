@@ -5,20 +5,47 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.prev');
     let currentIndex = 0;
 
-    // Set initial position
+    // Update classes for visible and active slides
+    function updateSlideClasses() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('visible', 'active');
+            
+            // Add visible class to current and adjacent slides
+            if (index >= currentIndex - 1 && index <= currentIndex + 1) {
+                slide.classList.add('visible');
+            }
+            
+            // Add active class to center slide
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    // Update slide positions
     function updateSlidePosition() {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        const slideWidth = slides[0].offsetWidth + 20; // Width + margin
+        track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+        updateSlideClasses();
     }
 
     // Next button click handler
     nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
         updateSlidePosition();
     });
 
     // Previous button click handler
     prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = slides.length - 1;
+        }
         updateSlidePosition();
     });
 
@@ -56,4 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
+
+    // Initialize the carousel
+    updateSlidePosition();
+
+    // Update on window resize
+    window.addEventListener('resize', updateSlidePosition);
 });

@@ -17,6 +17,7 @@ Text Domain: astrachildnotchbuilt
     --charcoal-grey: rgb(49, 48, 47);
     --plain-white-hover: gray;
     --red-highlight: #ff5e5e;
+    --green-highlight: #00ff00;
 }
 
 /* this overrides the astra 'container' settings which only allow full-width in the paid version of the theme */

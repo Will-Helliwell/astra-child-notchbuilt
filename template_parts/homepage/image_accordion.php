@@ -22,9 +22,9 @@ wp_enqueue_script(
 <?php
 $carousel_gallery_images = get_field('carousel_gallery_images');
 
-echo '<pre>';
-print_r($carousel_gallery_images);
-echo '</pre>';
+// echo '<pre>';
+// print_r($carousel_gallery_images);
+// echo '</pre>';
 
 if ($carousel_gallery_images): ?>
     <div class="gallery-container">

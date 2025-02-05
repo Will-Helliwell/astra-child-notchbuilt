@@ -1,21 +1,39 @@
 .gallery-container {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     overflow: hidden;
+    padding: 0;
 }
 
 .gallery-track {
     display: flex;
     transition: transform 0.3s ease-in-out;
+    /* Adjusted to account for exactly 3 full images plus 2 partial */
+    padding: 0 calc(25% - 118px);  /* 25% is quarter of container width for partial images */
 }
 
 .gallery-item {
     position: relative;
-    flex: 0 0 100%;
-    width: 100%;
-    height: 600px;
+    flex: 0 0 472px;
+    width: 472px;
+    height: 472px;
+    margin: 0 10px;
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style for the three fully visible images */
+.gallery-item.visible {
+    opacity: 1;
+}
+
+/* Style for the center (active) image */
+.gallery-item.active {
+    transform: scale(1.05);
+    opacity: 1;
+    z-index: 2;
 }
 
 .gallery-item img {
@@ -53,7 +71,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--red-highlight);
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -63,19 +81,27 @@
     justify-content: center;
     cursor: pointer;
     z-index: 10;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; 
 }
 
+.nav-button:focus,
+.nav-button:active,
 .nav-button:hover {
-    background: rgba(255, 255, 255, 1);
+    background: var(--green-highlight)
+}
+
+.nav-button:focus:not(:hover) {
+    background: var(--red-highlight);
 }
 
 .nav-button.prev {
     left: 20px;
+    z-index: 3;
 }
 
 .nav-button.next {
     right: 20px;
+    z-index: 3;
 }
 
 .nav-button svg {
@@ -83,8 +109,26 @@
     height: 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1500px) {
     .gallery-item {
+        flex: 0 0 400px;
+        width: 400px;
         height: 400px;
+    }
+    
+    .gallery-track {
+        padding: 0 calc(25% - 100px);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-track {
+        padding: 0 calc(25% - 75px);
+    }
+    
+    .gallery-item {
+        flex: 0 0 300px;
+        width: 300px;
+        height: 300px;
     }
 }

@@ -4,6 +4,13 @@
  * description: >-
   Page template for the homepage
  */
+
+wp_enqueue_style(
+    'homepage-styles',
+    get_stylesheet_directory_uri() . '/assets/css/homepage/homepage.css',
+    array(),
+    '1.0.0'
+);
 ?>
 
 <!-- Get astra header -->
@@ -17,7 +24,9 @@
 
             <?php get_template_part('template_parts/homepage/homepage_cover_image'); ?>
 
-            <?php get_template_part('template_parts/homepage/image_accordion'); ?>
+            <div class="image-accordion-container">
+                <?php get_template_part('template_parts/homepage/image_accordion'); ?>
+            </div>
 
             <?php get_template_part('template_parts/astra_toggleable_title'); ?>
 

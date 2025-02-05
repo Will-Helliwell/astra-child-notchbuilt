@@ -3,21 +3,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = Array.from(track.children);
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
-    let currentIndex = 0;
+    let currentIndex = 1;
 
-    // Update classes for visible and active slides
+    // Update classes for visible slides
     function updateSlideClasses() {
         slides.forEach((slide, index) => {
-            slide.classList.remove('visible', 'active');
+            slide.classList.remove('visible');
             
             // Add visible class to current and adjacent slides
             if (index >= currentIndex - 1 && index <= currentIndex + 1) {
                 slide.classList.add('visible');
-            }
-            
-            // Add active class to center slide
-            if (index === currentIndex) {
-                slide.classList.add('active');
             }
         });
     }
